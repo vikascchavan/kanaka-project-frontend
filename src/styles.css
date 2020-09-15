@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files@ */
+/* @import 'assets/css/font-awesome.min.css';
+@import 'assets/css/skel.css';
+@import 'assets/css/style-large.css';
+@import 'assets/css/style-medium.css';
+@import 'assets/css/style-small.css';
+@import 'assets/css/style-xlarge.css';
+@import 'assets/css/style-xsmall.css';
+@import 'assets/css/style.css'; */
+.frame {
+    /* margin-left: 30%; */
+    width: 650px;
+    background: #fff;
+    border-radius: 70px;
+
+    overflow: hidden;
+    border-color: black;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 65px;
+    padding-bottom: 50px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+  .view-frame {
+    /* margin-left: 30%; */
+    width: 600px;
+    background: #fff;
+    border-radius: 70px;
+
+    overflow: hidden;
+    border-color: black;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 65px;
+    padding-bottom: 50px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-frame {
+    /* margin-left: 30%; */
+    width: 600px;
+    background: #fff;
+    border-radius: 70px;
+
+    overflow: hidden;
+    border-color: black;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 65px;
+    padding-bottom: 50px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  
+.welcome-container {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+  /* padding-top :1px; */
+  padding: 15px;
+  background: gray;
+  /* background-image: url("../src/assets/images/bg-img2.jpg"); */
+}
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

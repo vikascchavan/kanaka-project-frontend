@@ -1,0 +1,81 @@
+.input-padding{
+    padding-top : 2%;
+}
+
+
+.input-size{
+    width: 550%;
+}
+.input-name{
+  width: 200%;
+}
+.fname-size{
+  width: 130%;
+  margin-left: -10%;
+}
+.lname-size{
+  width: 130%;
+  margin-left: -20%;
+  /* margin-right: 20%; */
+
+}
+
+.err-msg {
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 5px;
+    text-align: left;
+  }
+  .space {
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: -5px;
+    text-align: left;
+    margin-left: 0%;
+  }
+  button:disabled{
+    background-color: grey;
+  }
+  .heading{
+    text-align: center;
+  }
+  .login-button{
+    margin-left: 25%;
+    width: auto;
+  }
+  
+  button:disabled{
+    background-color: grey;
+  }
+  .is-invalid{
+    border: 1px solid red!important;
+    /* border-radius: 30px; */
+
+  }
+
+  .female-gender{
+    margin-right: 0%;
+  }
+  
+  ng-invalid {
+    border: 1px solid red!important;
+    border-radius: 30px;
+
+  }
+  .signup-space{
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    margin-left: -80%;
+
+  }
+  .fname-space{
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    margin-left: -60%;
+
+  }
+  

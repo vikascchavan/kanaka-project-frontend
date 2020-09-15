@@ -1,0 +1,82 @@
+<div class="welcome-container">
+    <section id="main" class="wrapper">
+        <!-- Form -->
+        <div class="login-frame">
+            <div class="heading">
+                <h3>LOGIN</h3>
+            </div>
+            <section>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-username">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input type="text" placeholder="Username" [(ngModel)]="username"
+                                            #username_control="ngModel" required name="username"
+                                            pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$"
+                                            [ngClass]="{ 'is-invalid':wrongCredential || username_control.errors && (username_control.touched  || username_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="username_control.errors && (username_control.touched  || username_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" username_control.errors?.pattern && (username_control.touched  || username_control.dirty)"
+                                    class="invalidate"> Invalid Email.
+                                </div>
+                                <div *ngIf=" username_control.errors.required" class="required">This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Password &nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input class="my-input100" type="password" placeholder="Password" id="password"
+                                            [(ngModel)]="password" #password_control="ngModel" required name="password"
+                                            [ngClass]="{ 'is-invalid': wrongCredential || password_control.errors && (password_control.touched  || password_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf=" password_control.errors && (password_control.touched  || password_control.dirty) "
+                                class="wrong-cred">This field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="submitted && wrongCredential">
+                    <p class="wrong-cred">Wrong username or password</p>
+                </div><br>
+            </section><br><br>
+            <!-- Buttons -->
+            <section>
+                <div class="login-button">
+                    <ul class="actions">
+                        <li><button class="button" [disabled]="username_control.invalid || password_control.invalid" (click)="logIn()">Login</button></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li><button class="button" (click)="signUp()">SignUp</button></li>
+                    </ul>
+                </div>
+            </section>
+            <div class="text-center">
+                <span class="txt1">
+                    Forgot
+                </span>
+
+                <a routerLink="/forgetpass" class="txt2">
+                    Password?
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,105 @@
+<div class="welcome-container">
+    <section id="main" class="wrapper">
+
+        <!-- Form -->
+        <div class="frame">
+            <div class="heading">
+                <h3>RESET PASSWORD</h3>
+            </div>
+            <section>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Name
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-username">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input type="text" placeholder="Username" [(ngModel)]="forget.username"
+                                            #username_control="ngModel" required name="username"
+                                            pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$"
+                                            [ngClass]="{ 'is-invalid':wrongCred || username_control.errors && (username_control.touched  || username_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="username_control.errors && (username_control.touched  || username_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" username_control.errors?.pattern && (username_control.touched  || username_control.dirty)"
+                                    class="invalidate"> Invalid Email.
+                                </div>
+                                <div *ngIf=" username_control.errors.required" class="required">This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="row uniform 50%">
+                                <div class="6u 12u$(4)">
+                                    <input type="password" placeholder="Password" [(ngModel)]="forget.password"
+                                        #password_control="ngModel" required name="password"
+                                        [ngClass]="{ 'is-invalid':wrongCred ||  password_control.errors && (emptyPass || password_control.touched  || password_control.dirty)  }" />
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <div *ngIf=" password_control.errors && (password_control.touched  || password_control.dirty) "
+                                class="err-msg">This field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Re-password &nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="row uniform 50%">
+                                <div class="6u 12u$(4)">
+                                    <input class="my-input100" type="password"
+                                        (input)="passwordMatch($event.target.value)" placeholder="confirmPassword"
+                                        [(ngModel)]="forget.confirmPassword" #confirmPassword_control="ngModel" required
+                                        name="confirmPassword"
+                                        [ngClass]="{ 'is-invalid':match || wrongCred || confirmPassword_control.errors && (emptyPass || confirmPassword_control.touched  || confirmPassword_control.dirty)  }" />
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <div *ngIf="match || confirmPassword_control.errors && ( confirmPassword_control.touched  || confirmPassword_control.dirty)" class="err-msg">
+                                <div *ngIf="match " class="err-msg">
+                                    Password does not matched.
+                                </div>
+                                <div *ngIf=" confirmPassword_control.errors && (confirmPassword_control.touched  || confirmPassword_control.dirty) "
+                                    class="err-msg">This field is required
+                                </div>
+                            </div>
+                            <div *ngIf="wrongCred && submitted" class="err-msg">
+                                Invalid User.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+      </section><br><br>
+            <!-- Buttons -->
+            <section>
+                <div class="login-button">
+                    <ul class="actions">
+                        <button class="button" (click)="resetPass()"
+                            [disabled]="username_control.invalid || password_control.invalid || confirmPassword_control.invalid || match">RESET</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="button" (click)="cancleButton()">CANCLE</button>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>

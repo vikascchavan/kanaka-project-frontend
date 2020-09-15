@@ -1,0 +1,90 @@
+.input-username{
+    width :500%;
+    margin-left: 10px;
+}
+.text-center{
+  text-align: center;
+}
+.txt2{
+  color: rgb(53, 93, 204);
+}
+.input-size{
+  width: 100%;
+}
+
+.heading{
+    text-align: center;
+}
+.input-password{
+    width :530%;
+    margin-left: 5%;
+}
+.input-padding{
+    padding-top : 2%;
+}
+
+.login-button{
+    width :100%;
+    margin-left: 25%;
+}
+
+.is-invalid{
+    border: 1px solid red!important;
+    /* border-radius: 30px; */
+
+  }
+  .wrong-cred {
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 0px;
+    text-align: center;
+    margin-left: -10%;
+  }
+  .err-msg {
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    margin-left: -40%;
+  }
+  
+
+  .invalidate {
+    color:rgb(201, 9, 41);
+    font-size: 12px; 
+    padding: 5px;
+    text-align: center;
+    margin-left: 0%;
+  }
+
+  
+  .required {
+    color:rgb(201, 9, 41);
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 0%;
+  }
+
+/* 
+
+  
+  
+
+  
+  
+  .validation{
+    border: 1px solid red!important;
+    border-radius: 30px;
+
+  }
+  
+  ng-invalid {
+    border: 1px solid red!important;
+    border-radius: 30px;
+
+  } */
+  /* .login-err-msg{
+
+  } */
+  

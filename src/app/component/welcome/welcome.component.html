@@ -1,0 +1,336 @@
+<div class="welcome-container">
+    <!-- Navbar Section -->
+    <mat-toolbar class="toolbar">
+        <!-- <mat-toolbar-row> -->
+        <h1><b>welcome {{massage}}</b></h1>
+        <span class="example-spacer"></span>
+        <section>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <mat-icon class="sizing">account_circle</mat-icon>
+
+        </section>
+        <div class="ancar">
+            <button class="button alt" [matMenuTriggerFor]="menu">{{massage}}</button>
+        </div>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item color="primary" (click)="viewProfile()">View Profile</button><br>
+            <button mat-menu-item color="primary" (click)="editProfile()">Edit Profile</button><br>
+            <button mat-menu-item color="primary" (click)="logedOut()">Logout</button><br>
+        </mat-menu>
+    </mat-toolbar>
+
+    <section id="main" class="wrapper">
+    <!-- Edit Profile  -->
+        <div *ngIf="flag == 2">
+            <div class="frame">
+                <div class="heading">
+                    <h3>EDIT PROFILE</h3>
+                </div>
+                <section>
+                    <div class="row uniform 50%">
+                        <div style="float: left;" class="input-padding">
+                            <b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </b>
+                        </div>
+                        <div style="float: left;">
+                            <div class="6u 12u$(4) fname-size">
+                                <input type="text" placeholder="firstname" [(ngModel)]="profileObject.firstname" #firstname_control="ngModel"
+                                    required value="{{profileObject.firstname}}" name="firstname" pattern="[a-zA-Z]+"
+                                    [ngClass]="{ 'is-invalid': firstname_control.errors && (firstname_control.touched  || firstname_control.dirty)  }" />
+                            </div>
+                            <div *ngIf=" firstname_control.errors && (firstname_control.touched  || firstname_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" firstname_control.errors?.pattern && (firstname_control.touched  || firstname_control.dirty)"
+                                    class="fname-space"> Invalid Firstname.
+                                </div>
+                                <div *ngIf=" firstname_control.errors.required " class="fname-space">This field is
+                                    required
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: left;">
+                            <div class="6u$ 12u$(4) lname-size">
+                                <input type="text" placeholder="Lastname" [(ngModel)]="profileObject.lastname"
+                                    #lastname_control="ngModel" required name="lastname" pattern="[a-zA-Z]+"
+                                    [ngClass]="{ 'is-invalid': lastname_control.errors && (lastname_control.touched  || lastname_control.dirty)  }" />
+                            </div>
+                            <div *ngIf=" lastname_control.errors && (lastname_control.touched  || lastname_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" lastname_control.errors?.pattern && (lastname_control.touched  || lastname_control.dirty)"
+                                    class="signup-space"> Invalid Lastname.
+                                </div>
+                                <div *ngIf=" lastname_control.errors.required " class="signup-space">This field is
+                                    required
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-4 input-padding">
+                            <b>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        </div>
+                        <div class="col-75">
+                            <div method="post" action="#" class="input-size">
+                                <div class="input-password">
+                                    <div class="row uniform 50%">
+                                        <div class="6u 12u$(4)">
+                                            <input type="text" placeholder="Address" [(ngModel)]="profileObject.address"
+                                                #address_control="ngModel" required name="address"
+                                                [ngClass]="{ 'is-invalid': address_control.errors && (address_control.touched  || address_control.dirty)  }" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf=" address_control.errors && (address_control.touched  || address_control.dirty) "
+                                    class="err-msg">This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-4 input-padding">
+                            <b>Email
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        </div>
+                        <div class="col-75">
+                            <div method="post" action="#" class="input-size">
+                                <div class="input-password">
+                                    <div class="row uniform 50%">
+                                        <div class="6u 12u$(4)">
+                                            <input class="my-input100" type="text" placeholder="Email"
+                                                [(ngModel)]="profileObject.email" #email_control="ngModel" required
+                                                name="email" pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$"
+                                                [ngClass]="{ 'is-invalid': email_control.errors && (email_control.touched  || email_control.dirty)  }" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf=" email_control.errors && (email_control.touched  || email_control.dirty)"
+                                    class="err-msg">
+                                    <div *ngIf=" email_control.errors?.pattern && (email_control.touched  || email_control.dirty)"
+                                        class="err-msg"> Invalid Email.
+                                    </div>
+                                    <div *ngIf=" email_control.errors.required " class="err-msg">This
+                                        field is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-4 input-padding">
+                            <b>Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                        </div>
+                        <div class="col-75">
+                            <div method="post" action="#" class="input-size">
+                                <div class="input-password">
+                                    <div class="row uniform 50%">
+                                        <div class="6u 12u$(4)">
+                                            <input class="my-input100" type="text" placeholder="Contact"
+                                                [(ngModel)]="profileObject.contact" #contact_control="ngModel" required
+                                                name="contact" pattern="[0-9]{10}"
+                                                [ngClass]="{ 'is-invalid': contact_control.errors && (contact_control.touched  || contact_control.dirty)  }" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf=" contact_control.errors && (contact_control.touched  || contact_control.dirty)"
+                                    class="err-msg">
+                                    <div *ngIf=" contact_control.errors?.pattern && (contact_control.touched  || contact_control.dirty)"
+                                        class="err-msg"> Invalid Contact.
+                                    </div>
+                                    <div *ngIf=" contact_control.errors.required " class="err-msg">This field is
+                                        required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-4 input-padding">
+                            <b>Gender
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                        </div>
+                        <div class="col-75">
+                            <div method="post" action="#" class="input-size">
+                                <div style="float: left;" class="row uniform 50% male-gender">
+                                    <div class="4u 12u$(3)">
+                                        <input type="radio" id="priority-low" [(ngModel)]="profileObject.gender"
+                                            #gender_control1="ngModel" required name="gender" value="Male">
+                                        <label
+                                            for="priority-low">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                                <div style="float: left;" class="row uniform 50% female-gender">
+                                    <div class="4u 12u$(3)">
+                                        <input type="radio" id="priority-normal" [(ngModel)]="profileObject.gender"
+                                            #gender_control2="ngModel" required name="gender" value="Female">
+                                        <label for="priority-normal">Female</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="(gender_control1.errors || gender_control2.errors) && (gender_control1.touched || gender_control1.dirty) && 
+                                                                (gender_control1.touched || gender_control1.dirty)"
+                                    class="err-msg">
+                                    <div *ngIf="gender_control1.errors" class="err-msg"><br>This field is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><br>
+                <section>
+                    <div class="submit-button">
+                        <ul class="actions">
+                            <button class="button" [disabled]="firstname_control.invalid || lastname_control.invalid || address_control.invalid || email_control.invalid || contact_control.invalid "
+                                (click)="submit()">SUBMIT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="button" (click)="cancleButton()">CANCLE</button>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    <!-- view Profile  -->
+        <div *ngIf="flag == 1">
+            <div class="view-container">
+                <div class="view-frame">
+                    <div class="heading">
+                        <h3>VIEW PROFILE</h3>
+                    </div>
+                    <section>
+                        <div class="row">
+                            <div style="float: left;" class="col-4 edit-padding">
+                                <label>
+                                    <h3>Name&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <h3>:</h3>
+                                </label>
+                            </div>
+                            <div style="float: left;">
+                                <div class="6u 12u$(4) fname-size">
+                                    <label>
+                                        <h3>{{profileObject.firstname}}</h3>
+                                    </label>
+                                </div>
+                            </div>
+                            <div style="float: left;">
+                                <div class="6u$ 12u$(4) lname-size">
+                                    <label>
+                                        <h3>{{profileObject.lastname}}</h3>
+                                    </label>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-4 edit-padding">
+                                <label>
+                                    <h3>Address </h3>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <h3>:</h3>
+                                </label>
+                            </div>
+                            <div class="col-75">
+                                <div method="post" action="#" class="input-size">
+                                    <div class="input-password">
+                                        <div class="row uniform 50%">
+                                            <div class="6u 12u$(4)">
+                                                <label>
+                                                    <h3>{{profileObject.address}}</h3>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-4 edit-padding">
+                                <label>
+                                    <h3>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <h3>:</h3>
+                                </label>
+                            </div>
+                            <div class="col-75">
+                                <div method="post" action="#" class="input-size">
+                                    <div class="input-password">
+                                        <div class="row uniform 50%">
+                                            <div class="6u 12u$(4)">
+                                                <label>
+                                                    <h3>{{profileObject.email}}</h3>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-4 edit-padding">
+                                <label>
+                                    <h3>Contact </h3>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <h3>:</h3>
+                                </label>
+                            </div>
+                            <div class="col-75">
+                                <div method="post" action="#" class="input-size">
+                                    <div class="input-password">
+                                        <div class="row uniform 50%">
+                                            <div class="6u 12u$(4)">
+                                                <label>
+                                                    <h3>{{profileObject.contact}}</h3>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-4 edit-padding">
+                                <label>
+                                    <h3>Gender </h3>
+                                </label>
+                            </div>
+                            <div class="col-4">
+                                <label>
+                                    <h3>:</h3>
+                                </label>
+                            </div>
+                            <div class="col-75">
+                                <div method="post" action="#" class="input-size">
+                                    <div style="float: left;" class="row uniform 50% male-gender">
+                                        <div class="4u 12u$(3)">
+                                            <label>
+                                                <h3>{{profileObject.gender}}</h3>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section><br>
+                    <section>
+                        <div class="close-button">
+                            <ul class="actions">
+                                <button class="button" (click)="cancleButton()">CLOSE</button>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

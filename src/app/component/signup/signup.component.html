@@ -1,0 +1,218 @@
+<div class="welcome-container">
+    <section id="main" class="wrapper">
+        <!-- Form -->
+        <div class="frame">
+            <div class="heading">
+                <h3>SIGNUP</h3>
+            </div>
+            <section>
+                <div class="row uniform 50%">
+                    <div style="float: left;" class="input-padding">
+                        <b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </b>
+                    </div>
+                    <div style="float: left;">
+                        <div class="6u 12u$(4) fname-size">
+                            <input type="text" placeholder="Firstname" [(ngModel)]="users_array.firstname"
+                                #firstname_control="ngModel" required name="firstname" pattern="[a-zA-Z]+"
+                                [ngClass]="{ 'is-invalid': firstname_control.errors && (firstname_control.touched  || firstname_control.dirty)  }" />
+                        </div>
+                        <div *ngIf=" firstname_control.errors && (firstname_control.touched  || firstname_control.dirty)"
+                            class="err-msg">
+                            <div *ngIf=" firstname_control.errors?.pattern && (firstname_control.touched  || firstname_control.dirty)"
+                                class="fname-space"> Invalid Firstname.
+                            </div>
+                            <div *ngIf=" firstname_control.errors.required " class="fname-space">This field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float: left;">
+                        <div class="6u$ 12u$(4) lname-size">
+                            <input type="text" placeholder="Lastname" [(ngModel)]="users_array.lastname"
+                                #lastname_control="ngModel" required name="lastname" pattern="[a-zA-Z]+"
+                                [ngClass]="{ 'is-invalid': lastname_control.errors && (lastname_control.touched  || lastname_control.dirty)  }" />
+                        </div>
+                        <div *ngIf=" lastname_control.errors && (lastname_control.touched  || lastname_control.dirty)"
+                            class="err-msg">
+                            <div *ngIf=" lastname_control.errors?.pattern && (lastname_control.touched  || lastname_control.dirty)"
+                                class="signup-space"> Invalid Lastname.
+                            </div>
+                            <div *ngIf=" lastname_control.errors.required " class="signup-space">This field is required
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+
+
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input type="text" placeholder="Address" [(ngModel)]="users_array.address"
+                                            #address_control="ngModel" required name="address"
+                                            [ngClass]="{ 'is-invalid': address_control.errors && (address_control.touched  || address_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf=" address_control.errors && (address_control.touched  || address_control.dirty) "
+                                class="err-msg">This field is required
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Email
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input class="my-input100" type="text" placeholder="Email"
+                                            [(ngModel)]="users_array.email" #email_control="ngModel" required
+                                            name="email" pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$"
+                                            [ngClass]="{ 'is-invalid': email_control.errors && (email_control.touched  || email_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf=" email_control.errors && (email_control.touched  || email_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" email_control.errors?.pattern && (email_control.touched  || email_control.dirty)"
+                                    class="err-msg"> Invalid Email.
+                                </div>
+                                <div *ngIf=" email_control.errors.required " class="err-msg">This
+                                    field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input class="my-input100" type="password" placeholder="Password"
+                                            [(ngModel)]="users_array.password" #password_control="ngModel" required
+                                            name="password"
+                                            [ngClass]="{ 'is-invalid': password_control.errors && (password_control.touched  || password_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf=" password_control.errors && (password_control.touched  || password_control.dirty) "
+                                class="err-msg">This field is required
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Re-Password :</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input class="my-input100" type="password"
+                                            (input)="passwordMatch($event.target.value)" placeholder="confirmPassword"
+                                            [(ngModel)]="users_array.confirmPassword" #confirmPassword_control="ngModel"
+                                            required name="confirmPassword"
+                                            [ngClass]="{ 'is-invalid':match || confirmPassword_control.errors && (confirmPassword_control.touched  || confirmPassword_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="match || confirmPassword_control.errors && ( confirmPassword_control.touched  || confirmPassword_control.dirty)" class="err-msg">
+                                <div *ngIf="match " class="err-msg">
+                                    Password does not matched.
+                                </div>
+                                <div *ngIf=" confirmPassword_control.errors && (confirmPassword_control.touched  || confirmPassword_control.dirty) "
+                                    class="err-msg">This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div class="input-password">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u$(4)">
+                                        <input class="my-input100" type="text" placeholder="Contact"
+                                            [(ngModel)]="users_array.contact" #contact_control="ngModel" required
+                                            name="contact" pattern="[0-9]{10}"
+                                            [ngClass]="{ 'is-invalid': contact_control.errors && (contact_control.touched  || contact_control.dirty)  }" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf=" contact_control.errors && (contact_control.touched  || contact_control.dirty)"
+                                class="err-msg">
+                                <div *ngIf=" contact_control.errors?.pattern && (contact_control.touched  || contact_control.dirty)"
+                                    class="err-msg"> Invalid Contact.
+                                </div>
+                                <div *ngIf=" contact_control.errors.required " class="err-msg">This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4 input-padding">
+                        <b>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                    </div>
+                    <div class="col-75">
+                        <div method="post" action="#" class="input-size">
+                            <div style="float: left;" class="row uniform 50% male-gender">
+                                <div class="4u 12u$(3)">
+                                    <input type="radio" id="priority-low" [(ngModel)]="users_array.gender"
+                                        #gender_control1="ngModel" required name="gender" value="Male">
+                                    <label for="priority-low">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div style="float: left;" class="row uniform 50% female-gender">
+                                <div class="4u 12u$(3)">
+                                    <input type="radio" id="priority-normal" [(ngModel)]="users_array.gender"
+                                        #gender_control2="ngModel" required name="gender" value="Female">
+                                    <label for="priority-normal">Female</label>
+                                </div>
+                            </div><br>
+                            <div *ngIf="(gender_control1.errors || gender_control2.errors) && (gender_control1.touched || gender_control1.dirty) && 
+                                                        (gender_control1.touched || gender_control1.dirty)"
+                                class="space">
+                                <div *ngIf="gender_control1.errors" class="space"><br>This field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><br><br>
+            <!-- Buttons -->
+            <section>
+                <div class="login-button">
+                    <ul class="actions">
+                        <button class="button" (click)="signUp()"
+                            [disabled]="firstname_control.invalid || lastname_control.invalid || address_control.invalid || email_control.invalid || password_control.invalid || confirmPassword_control.invalid || contact_control.invalid || (gender_control1.invalid || gender_control2.invalid)">SIGNUP</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="button" (click)="cancleButton()">CANCLE</button>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
